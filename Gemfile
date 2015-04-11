@@ -22,3 +22,4 @@ end
 gem 'bootstrap-datepicker-rails'
 gem 'feedjira'
 gem 'execjs'
+gem 'therubyracer'
