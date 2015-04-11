@@ -5,6 +5,15 @@ class NewsController < ApplicationController
 
   respond_to :html
 
+  def mobile_feeds
+    data = []
+    News.where(state: "Active").order("created_at desc").each { |news| 
+        data << {title: news.title, description: news.desc, link: news.link, pub_date: news.pub_date, image: news.image }
+    }
+
+    render xml: data.to_xml(:root => 'items')
+  end
+
   def bexrbs
     opt_url = "http://integral.esac.esa.int/bexrbmonitor/webpage_oneplot.php"
     hdrs = {"User-Agent"=>"Mozilla/5.0 (Windows NT 6.3; Win64; x64)"}

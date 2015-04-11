@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :bexrbs
 
   resources :news do
-
+  	collection do
+  		get 'mobile/feeds', action: :mobile_feeds
+  	end
   end
 
   resources :feeds do
