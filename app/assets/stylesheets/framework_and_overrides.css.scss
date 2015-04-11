@@ -172,3 +172,11 @@ section {
     background-position: top center;
     background-repeat: repeat-x;
 }
+
+#logo img {
+  min-width: 100px;
+}
+
+.navbar-toggle { 
+    background-color: transparent;
+}

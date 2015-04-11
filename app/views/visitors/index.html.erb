@@ -6,11 +6,11 @@
         <h5>BeXRB Monitor</h5>
         <div class="ibox-tools">
           <a class="collapse-link">
-            <i class="fa fa-chevron-up"></i>
+            <i class="fa fa-chevron-up"><%= link_to "Show All", data_bexrb_path %> </i>
           </a>
         </div>
       </div>
-      <div class="ibox-content">
+      <div class="ibox-content table-responsive">
        <table class="table table-hover" id="dev-table">
         <thead>
           <tr>
@@ -50,9 +50,59 @@
         </tbody>
       </table>
     </div>
-  </div>
+    </div>
+
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Latest News</h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content table-responsive">
+       <table class="table table-hover" id="dev-table">
+        <tbody>
+          <% @latest_news.each do |news| %>
+          <tr>
+              <td>
+              <%= image_tag "logo.png", align: "left", size: "80" if news.source == "SpaceAlert" %>
+              <h3><%= link_to simple_format(news.title), news.link %></h3>
+              <p>
+              <%= simple_format news.desc %>
+              </p>
+              </td>
+              <td><%= l news.pub_date, format: :short %></td>
+          </tr>
+          <% end %>
+        </tbody>
+        </table>
+      </div>
+    </div>
   </div>
   <div class="col-sm-3">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>What is <strong>SpaceAlert</strong>?</h5>
+      </div>
+      <div class="ibox-content">
+      <div>
+        <%= image_tag "logo.png" %>
+      </div>
+        <strong>SpaceAlert</strong> is an application that collects information from different configurable feed sources and provide mobile compatable interface to highlight the ‘most active’ light sources in an easy to grasp fashion.
+      </div>
+
+    </div>
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Mobile Application</h5>
+      </div>
+      <div class="ibox-content">
+        <%= image_tag "available_apple.png" %>
+      </div>
+
+    </div>
     <div class="ibox float-e-margins">
       <div class="ibox-title">
         <h5>Picture of Day : <%= @picture_of_day["title"] if @picture_of_day %></h5>
@@ -71,33 +121,7 @@
 
 <div class="row wrapper">
   <div class="col-sm-12">
-    <div class="ibox float-e-margins">
-      <div class="ibox-title">
-        <h5>Latest News</h5>
-        <div class="ibox-tools">
-          <a class="collapse-link">
-            <i class="fa fa-chevron-up"></i>
-          </a>
-        </div>
-      </div>
-      <div class="ibox-content">
-       <table class="table table-hover" id="dev-table">
-        <tbody>
-          <% @latest_news.each do |news| %>
-          <tr>
-                        <td>
-                        <%= image_tag "logo.png", align: "left", size: "80" if news.source == "SpaceAlert" %>
-                        <h3><%= link_to simple_format(news.title), news.link %></h3>
-                        <p>
-                        <%= simple_format news.desc %>
-                        </p>
-                        </td>
-                        <td><%= l news.pub_date, format: :short %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+    
   </div>
 </div>
 </div>

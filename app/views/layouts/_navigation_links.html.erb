@@ -1,18 +1,16 @@
 <%# add navigation links to this file %>
-<table class="nav_table">
+<table class="nav_table hidden-xs">
 	<tr>
-		<td></td>
 		<% if user_signed_in? %>
-		  <td class="<%= is_active_controller('users') %>"><%= link_to 'Users', users_path %></td>
 		  <td class="<%= is_active_controller('feeds') %>"><%= link_to 'Feeds', feeds_path %></td>
 		  <td class="<%= is_active_controller('news') %>"><%= link_to 'News', news_index_path %></td>
 		<% else %>
 		  <td class="<%= is_active_controller('data') %>"><%= link_to 'Public Data', data_index_path %></td>
 		<% end %>
 		<td>
-			<div id="logo" class="hidden-xs hidden-sm">
+			<div id="logo" class="hidden-xs">
 		      <%= link_to root_path do %>
-		      <div class="hidden-xs hidden-sm"><%= image_tag "logo.png" %></div>
+		      <div class="hidden-xs"><%= image_tag "logo.png" %></div>
 		      <% end -%>
 		    </div>
     	</td>
@@ -22,9 +20,21 @@
 		<% else %>
 		  <td><%= link_to 'Sign in', new_user_session_path %></td>
 		<% end %>
-		
-		<td></td>
 	</tr>
 </table>
+
+
+	<% if user_signed_in? %>
+	  <li class="visible-xs <%= is_active_controller('users') %>"><%= link_to 'Users', users_path %></li>
+	  <li class="visible-xs <%= is_active_controller('feeds') %>"><%= link_to 'Feeds', feeds_path %></li>
+	  <li class="visible-xs <%= is_active_controller('news') %>"><%= link_to 'News', news_index_path %></li>
+	  <li class="visible-xs <%= is_active_controller('data') %>"><%= link_to 'Public Data', data_index_path %></li>
+	  <li class="visible-xs"><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+	<% else %>
+	  <li class="visible-xs "><%= link_to 'Home', root_path %></li>
+	  <li class="visible-xs "><%= link_to 'Sign in', new_user_session_path %></li>
+	  <li class="visible-xs <%= is_active_controller('data') %>"><%= link_to 'Public Data', data_index_path %></li>
+	<% end %>
+
 
 
