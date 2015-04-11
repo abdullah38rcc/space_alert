@@ -9,7 +9,7 @@ class NewsController < ApplicationController
   def mobile_feeds
     data = []
     News.where(state: "Active").order("pub_date desc").each { |news| 
-        data << {title: news.title, description: news.desc, link: news.link, pub_date: news.pub_date, image: news.image }
+        data << {title: HTML::FullSanitizer.new.sanitize(news.title), description: HTML::FullSanitizer.new.sanitize(news.desc), link: news.link, pub_date: news.pub_date, image: news.image }
     }
 
     render xml: data.to_xml(:root => 'items')
@@ -18,7 +18,7 @@ class NewsController < ApplicationController
   def mobile_space_alerts
     data = []
     News.where(state: "Active").where(source: "SpaceAlert").order("pub_date desc").each { |news| 
-        data << {title: news.title, description: news.desc, link: news.link, pub_date: news.pub_date, image: news.image }
+        data << {title: HTML::FullSanitizer.new.sanitize(news.title), description: HTML::FullSanitizer.new.sanitize(news.desc), link: news.link, pub_date: news.pub_date, image: news.image }
     }
 
     render xml: data.to_xml(:root => 'items')
