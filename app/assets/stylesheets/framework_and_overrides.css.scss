@@ -1,6 +1,45 @@
+// Google Fonts
+@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&lang=en");
+
 // import the CSS framework
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// Variables, Mixins
+@import "base/variables";
+@import "base/mixins";
+
+// INSPINIA Theme Elements
+@import "base/typography";
+@import "base/navigation";
+@import "base/top_navigation";
+@import "base/buttons";
+@import "base/badgets_labels";
+@import "base/elements";
+@import "base/sidebar";
+@import "base/base";
+@import "base/pages";
+
+// RTL Support
+@import "base/rtl";
+
+// For demo only - config box style
+@import "base/theme-config";
+
+// INSPINIA Skins
+@import "base/skins";
+
+// Media query style
+@import "base/media";
+
+// Custom style
+// Your custom style to override base style
+@import "base/custom";
+
+body {
+  background-color: #fff;
+}
+
 
 // make all images responsive by default
 img {
@@ -79,4 +118,31 @@ section {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-xs;
+}
+
+.navbar {
+  min-height: 100px;
+}
+
+.nav_table tr td {
+  min-width: 100px;
+}
+
+.nav_table {
+  margin: auto;
+}
+
+.nav {
+  float: none;
+}
+
+.nav td a {
+  display: block;
+  padding: 10px;
+  border: 2px solid #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 19px;
+  font-weight: 600;
 }

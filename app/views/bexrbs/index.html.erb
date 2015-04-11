@@ -1,0 +1,67 @@
+
+<div class="row wrapper wrapper-content">
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t("models.bexrbs") %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+       <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+                        <th><%= t("bexrbs.name") %></th>
+                        <th><%= t("bexrbs.ra") %></th>
+                        <th><%= t("bexrbs.dec") %></th>
+                        <th><%= t("bexrbs.orbit_period") %></th>
+                        <th><%= t("bexrbs.maxi_flux_change_prob") %></th>
+                        <th><%= t("bexrbs.maxi_data") %></th>
+                        <th><%= t("bexrbs.swift_flux_change_prob") %></th>
+                        <th><%= t("bexrbs.swift_average_flux") %></th>
+                        <th><%= t("bexrbs.swift_data") %></th>
+                        <th><%= t("bexrbs.fermi_flux_change_prob") %></th>
+                        <th><%= t("bexrbs.fermi_average_flux") %></th>
+                        <th><%= t("bexrbs.fermi_data") %></th>
+                        <th><%= t("bexrbs.combined_plot") %></th>
+                        <th><%= t("bexrbs.plot_days") %></th>
+                        <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @bexrbs.each do |bexrb| %>
+          <tr>
+                        <td><%= bexrb.name %></td>
+                        <td><%= bexrb.ra %></td>
+                        <td><%= bexrb.dec %></td>
+                        <td><%= bexrb.orbit_period %></td>
+                        <td><%= bexrb.maxi_flux_change_prob %></td>
+                        <td><%= bexrb.maxi_data %></td>
+                        <td><%= bexrb.swift_flux_change_prob %></td>
+                        <td><%= bexrb.swift_average_flux %></td>
+                        <td><%= bexrb.swift_data %></td>
+                        <td><%= bexrb.fermi_flux_change_prob %></td>
+                        <td><%= bexrb.fermi_average_flux %></td>
+                        <td><%= bexrb.fermi_data %></td>
+                        <td><%= bexrb.combined_plot %></td>
+                        <td><%= bexrb.plot_days %></td>
+                        <td><%= link_to t('helpers.links.show'), bexrb %></td>
+            <td><%= link_to t('helpers.links.edit'), edit_bexrb_path(bexrb) %></td>
+            <td><%= link_to t('helpers.links.destroy'), bexrb, method: :delete, data: { confirm: t('helpers.links.confirm') } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row wrapper wrapper-content">
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <%= link_to t('bexrbs.new'), new_bexrb_path, class: "btn btn-success"  %>
+  </div>
+</div>

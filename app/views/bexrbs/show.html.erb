@@ -1,0 +1,55 @@
+
+
+<div class="row wrapper wrapper-content">
+	<div class="col-sm-6 col-sm-offset-3">
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5><%=t '.title' %></h5>
+				<div class="ibox-tools">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+				</div>
+			</div>
+			<div class="ibox-content">
+				<dl class="dl-horizontal">
+										<dt><strong><%= t("bexrb.name") %>:</strong></dt>
+					<dd><%= @bexrb.name %></dd>
+										<dt><strong><%= t("bexrb.ra") %>:</strong></dt>
+					<dd><%= @bexrb.ra %></dd>
+										<dt><strong><%= t("bexrb.dec") %>:</strong></dt>
+					<dd><%= @bexrb.dec %></dd>
+										<dt><strong><%= t("bexrb.orbit_period") %>:</strong></dt>
+					<dd><%= @bexrb.orbit_period %></dd>
+										<dt><strong><%= t("bexrb.maxi_flux_change_prob") %>:</strong></dt>
+					<dd><%= @bexrb.maxi_flux_change_prob %></dd>
+										<dt><strong><%= t("bexrb.maxi_data") %>:</strong></dt>
+					<dd><%= @bexrb.maxi_data %></dd>
+										<dt><strong><%= t("bexrb.swift_flux_change_prob") %>:</strong></dt>
+					<dd><%= @bexrb.swift_flux_change_prob %></dd>
+										<dt><strong><%= t("bexrb.swift_average_flux") %>:</strong></dt>
+					<dd><%= @bexrb.swift_average_flux %></dd>
+										<dt><strong><%= t("bexrb.swift_data") %>:</strong></dt>
+					<dd><%= @bexrb.swift_data %></dd>
+										<dt><strong><%= t("bexrb.fermi_flux_change_prob") %>:</strong></dt>
+					<dd><%= @bexrb.fermi_flux_change_prob %></dd>
+										<dt><strong><%= t("bexrb.fermi_average_flux") %>:</strong></dt>
+					<dd><%= @bexrb.fermi_average_flux %></dd>
+										<dt><strong><%= t("bexrb.fermi_data") %>:</strong></dt>
+					<dd><%= @bexrb.fermi_data %></dd>
+										<dt><strong><%= t("bexrb.combined_plot") %>:</strong></dt>
+					<dd><%= @bexrb.combined_plot %></dd>
+										<dt><strong><%= t("bexrb.plot_days") %>:</strong></dt>
+					<dd><%= @bexrb.plot_days %></dd>
+									</dl>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row wrapper wrapper-content">
+	<div class="col-md-6 col-md-offset-3 text-center">
+		<%= link_to t('helpers.links.edit'), edit_bexrb_path(@bexrb), class: "btn btn-success" %>
+		<%= link_to t('helpers.links.back'), bexrbs_path, class: "btn btn-default"  %>
+	</div>
+</div>

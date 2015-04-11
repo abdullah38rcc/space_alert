@@ -9,12 +9,24 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+
     <header>
       <%= render 'layouts/navigation' %>
     </header>
+
     <main role="main">
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
+    <script>
+      $(document).ready(function(){
+            $('.datepicker').datepicker({
+                format: 'yyyy-mm-dd',
+                keyboardNavigation: true,
+                forceParse: true,
+                autoclose: true
+            });
+      });
+    </script>
   </body>
 </html>

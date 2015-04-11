@@ -1,0 +1,34 @@
+
+
+<div class="row wrapper wrapper-content">
+	<div class="col-sm-6 col-sm-offset-3">
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5><%=t '.title' %></h5>
+				<div class="ibox-tools">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+				</div>
+			</div>
+			<div class="ibox-content">
+				<dl class="dl-horizontal">
+										<dt><strong><%= t("feed.url") %>:</strong></dt>
+					<dd><%= @feed.url %></dd>
+										<dt><strong><%= t("feed.state") %>:</strong></dt>
+					<dd><%= @feed.state %></dd>
+										<dt><strong><%= t("feed.last_connected_at") %>:</strong></dt>
+					<dd><%= @feed.last_connected_at %></dd>
+									</dl>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row wrapper wrapper-content">
+	<div class="col-md-6 col-md-offset-3 text-center">
+		<%= link_to t('helpers.links.read'), read_feed_path(@feed), class: "btn btn-success"  %>
+		<%= link_to t('helpers.links.edit'), edit_feed_path(@feed), class: "btn btn-success"  %>
+		<%= link_to t('helpers.links.back'), feeds_path, class: "btn btn-default"  %>
+	</div>
+</div>

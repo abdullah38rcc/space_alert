@@ -1,0 +1,42 @@
+<div class="row wrapper wrapper-content">
+  <div class="col-sm-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t("models.feeds") %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+       <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+                        <th><%= t("feeds.url")%></th>
+                        <th><%= t("feeds.state") %></th>
+                        <th><%= t("feeds.last_connected_at") %></th>
+                        <th colspan="1"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @feeds.each do |feed| %>
+          <tr>
+                        <td><%= link_to feed.url, feed %></td>
+                        <td><%= feed.state %></td>
+                        <td><%= feed.last_connected_at %></td>
+            <td><%= link_to t('helpers.links.destroy'), feed, method: :delete, data: { confirm: t('helpers.links.confirm') } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row wrapper wrapper-content">
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <%= link_to t('feeds.new'), new_feed_path, class: "btn btn-success" %>
+  </div>
+</div>

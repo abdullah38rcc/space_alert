@@ -11,7 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410202713) do
+ActiveRecord::Schema.define(version: 20150411001118) do
+
+  create_table "bexrbs", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "ra"
+    t.string   "dec"
+    t.string   "orbit_period"
+    t.string   "maxi_flux_change_prob"
+    t.string   "maxi_average_flux"
+    t.string   "maxi_data"
+    t.string   "maxi_url"
+    t.string   "swift_flux_change_prob"
+    t.string   "swift_average_flux"
+    t.string   "swift_data"
+    t.string   "swift_url"
+    t.string   "fermi_flux_change_prob"
+    t.string   "fermi_average_flux"
+    t.string   "fermi_data"
+    t.string   "fermi_url"
+    t.string   "combined_plot"
+    t.string   "plot_days"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feeds", force: true do |t|
+    t.string   "url"
+    t.string   "state"
+    t.datetime "last_connected_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news", force: true do |t|
+    t.string   "title",      limit: 4000
+    t.string   "desc",       limit: 4000
+    t.string   "link",       limit: 4000
+    t.datetime "pub_date"
+    t.string   "image",      limit: 4000
+    t.string   "code"
+    t.string   "state"
+    t.string   "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

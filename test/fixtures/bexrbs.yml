@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ra: MyString
+  dec: MyString
+  orbit_period: MyString
+  maxi_flux_change_prob: MyString
+  maxi_data: MyString
+  swift_flux_change_prob: MyString
+  swift_average_flux: MyString
+  swift_data: MyString
+  fermi_flux_change_prob: MyString
+  fermi_average_flux: MyString
+  fermi_data: MyString
+  combined_plot: MyString
+  plot_days: MyString
+
+two:
+  name: MyString
+  ra: MyString
+  dec: MyString
+  orbit_period: MyString
+  maxi_flux_change_prob: MyString
+  maxi_data: MyString
+  swift_flux_change_prob: MyString
+  swift_average_flux: MyString
+  swift_data: MyString
+  fermi_flux_change_prob: MyString
+  fermi_average_flux: MyString
+  fermi_data: MyString
+  combined_plot: MyString
+  plot_days: MyString

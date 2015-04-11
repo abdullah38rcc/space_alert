@@ -1,0 +1,32 @@
+
+
+<div class="row wrapper wrapper-content">
+	<div class="col-sm-6 col-sm-offset-3">
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5><%= t("common.basic_info") %></h5>
+				<div class="ibox-tools">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+				</div>
+			</div>
+			<div class="ibox-content">
+				<%= simple_form_for @news, :html => { :class => 'form-horizontal' } do |f| %>
+				<%= f.error_notification %>
+				<%= f.input :title %>
+				<%= f.input :desc %>
+				<%= f.input :link %>
+				<%= f.input :pub_date, as: :string, input_html: {class: 'datepicker'} %>
+				<%= f.input :image %>
+				<%= f.input :code %>
+				<div class="right">
+					<%= f.button :submit, :class => 'btn btn-primary' %>
+					<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+					news_index_path, :class => 'btn btn-default' %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

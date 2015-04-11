@@ -1,11 +1,29 @@
 <%# add navigation links to this file %>
-<% if user_signed_in? %>
-  <li><%= link_to 'Edit account', edit_user_registration_path %></li>
-  <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
-<% else %>
-  <li><%= link_to 'Sign in', new_user_session_path %></li>
-  <li><%= link_to 'Sign up', new_user_registration_path %></li>
-<% end %>
-<% if user_signed_in? %>
-  <li><%= link_to 'Users', users_path %></li>
-<% end %>
+<table class="nav_table">
+	<tr>
+		<td></td>
+		<% if user_signed_in? %>
+		  <td><%= link_to 'Users', users_path %></td>
+		  <td><%= link_to 'Feeds', feeds_path %></td>
+		  <td><%= link_to 'News', news_index_path %></td>
+		<% end %>
+		<td>
+			<div id="logo" class="hidden-xs hidden-sm">
+		      <%= link_to root_path do %>
+		      <div class="hidden-xs hidden-sm"><%= image_tag "space_apps_logo.png" %></div>
+		      <% end -%>
+		    </div>
+    	</td>
+		<% if user_signed_in? %>
+		  <td><%= link_to 'My account', edit_user_registration_path %></td>
+		  <td><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></td>
+		<% else %>
+		  <td><%= link_to 'Sign in', new_user_session_path %></td>
+		  <td><%= link_to 'Sign up', new_user_registration_path %></td>
+		<% end %>
+		
+		<td></td>
+	</tr>
+</table>
+
+

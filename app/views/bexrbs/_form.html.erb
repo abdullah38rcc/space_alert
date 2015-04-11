@@ -1,0 +1,40 @@
+
+
+<div class="row wrapper wrapper-content">
+	<div class="col-sm-6 col-sm-offset-3">
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5><%= t("common.basic_info") %></h5>
+				<div class="ibox-tools">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+				</div>
+			</div>
+			<div class="ibox-content">
+				<%= simple_form_for @bexrb, :html => { :class => 'form-horizontal' } do |f| %>
+				<%= f.error_notification %>
+				<%= f.input :name %>
+				<%= f.input :ra %>
+				<%= f.input :dec %>
+				<%= f.input :orbit_period %>
+				<%= f.input :maxi_flux_change_prob %>
+				<%= f.input :maxi_data %>
+				<%= f.input :swift_flux_change_prob %>
+				<%= f.input :swift_average_flux %>
+				<%= f.input :swift_data %>
+				<%= f.input :fermi_flux_change_prob %>
+				<%= f.input :fermi_average_flux %>
+				<%= f.input :fermi_data %>
+				<%= f.input :combined_plot %>
+				<%= f.input :plot_days %>
+				<div class="right">
+					<%= f.button :submit, :class => 'btn btn-primary' %>
+					<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+					bexrbs_path, :class => 'btn btn-default' %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
