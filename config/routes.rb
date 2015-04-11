@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   resources :news do
   	collection do
-  		get 'mobile/feeds', action: :mobile_feeds
+      get 'mobile/feeds', action: :mobile_feeds
+  		get 'mobile/alerts', action: :mobile_space_alerts
   	end
   end
 

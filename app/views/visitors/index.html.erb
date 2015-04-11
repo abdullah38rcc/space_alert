@@ -1,6 +1,6 @@
 <div class="wrapper-content">
 <div class="row wrapper">
-  <div class="col-sm-12">
+  <div class="col-sm-9">
     <div class="ibox float-e-margins">
       <div class="ibox-title">
         <h5>BeXRB Monitor</h5>
@@ -51,7 +51,21 @@
       </table>
     </div>
   </div>
-	</div>
+  </div>
+  <div class="col-sm-3">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Picture of Day : <%= @picture_of_day["title"] if @picture_of_day %></h5>
+      </div>
+      <div class="">
+        <%= image_tag @picture_of_day["url"] if @picture_of_day %>
+      </div>
+      <div class="ibox-content">
+        <%= @picture_of_day["explanation"] if @picture_of_day %>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 
