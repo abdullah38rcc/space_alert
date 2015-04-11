@@ -7,7 +7,7 @@
     <li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count"><%= @news.count %></span></li>
 	<% @news.each do |news| %>
     <li>
-      <%= link_to news do %>
+      <%= link_to news.link do %>
       	<h2><%= raw news.title %></h2>
       	<p><%= raw news.desc %></p>
       	<p class="ui-li-aside"><strong><%= news.pub_date %></strong></p>	
