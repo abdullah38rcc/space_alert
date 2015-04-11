@@ -1,3 +1,5 @@
+require 'net/http'
+
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:read, :show, :edit, :update, :destroy]
   before_filter :authenticate_user!

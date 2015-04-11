@@ -17,6 +17,6 @@ class DataController < ApplicationController
   end
 
   def mobile_news
-  	@news = News.where(state: "Active").order("created_at desc")
+  	@news = News.where(state: "Active").order("pub_date desc")
   end
 end

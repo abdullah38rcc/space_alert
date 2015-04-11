@@ -1,2 +1,90 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+<div class="wrapper-content">
+<div class="row wrapper">
+  <div class="col-sm-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>BeXRB Monitor</h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+       <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+                        <th><%= t("bexrbs.name") %></th>
+                        <th><%= t("bexrbs.ra") %></th>
+                        <th><%= t("bexrbs.dec") %></th>
+                        <th><%= t("bexrbs.orbit_period") %></th>
+                        <th><%= t("bexrbs.maxi_flux_change_prob") %></th>
+                        <th><%= t("bexrbs.maxi_data") %></th>
+                        <th><%= t("bexrbs.swift_flux_change_prob") %></th>
+                        <th><%= t("bexrbs.swift_average_flux") %></th>
+                        <th><%= t("bexrbs.swift_data") %></th>
+                        <th><%= t("bexrbs.fermi_flux_change_prob") %></th>
+                        <th><%= t("bexrbs.fermi_average_flux") %></th>
+                        <th><%= t("bexrbs.fermi_data") %></th>
+                        <th><%= t("bexrbs.plot_days") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @bexrbs.each do |bexrb| %>
+          <tr>
+                        <td><%= link_to bexrb.name, bexrb.url %></td>
+                        <td><%= bexrb.ra %></td>
+                        <td><%= bexrb.dec %></td>
+                        <td><%= bexrb.orbit_period %></td>
+                        <td class="<%= bexrb.maxi_prob_color %>"><%= number_to_percentage bexrb.maxi_flux_change_prob, precision: 0 %></td>
+                        <td><%= link_to bexrb.maxi_data, bexrb.maxi_url %></td>
+                        <td class="<%= bexrb.swift_prob_color %>"><%= number_to_percentage bexrb.swift_flux_change_prob, precision: 0 %></td>
+                        <td><%= bexrb.swift_average_flux %></td>
+                        <td><%= link_to bexrb.swift_data, bexrb.swift_url %></td>
+                        <td class="<%= bexrb.fermi_prob_color %>"><%= number_to_percentage bexrb.fermi_flux_change_prob, precision: 0 %></td>
+                        <td><%= bexrb.fermi_average_flux %></td>
+                        <td><%= link_to bexrb.fermi_data, bexrb.fermi_url %></td>
+                        <td><%= bexrb.plot_days %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+	</div>
+</div>
+
+
+<div class="row wrapper">
+  <div class="col-sm-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Latest News</h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+       <table class="table table-hover" id="dev-table">
+        <tbody>
+          <% @latest_news.each do |news| %>
+          <tr>
+                        <td>
+                        <%= image_tag "logo.png", align: "left", size: "80" if news.source == "SpaceAlert" %>
+                        <h3><%= link_to simple_format(news.title), news.link %></h3>
+                        <p>
+                        <%= simple_format news.desc %>
+                        </p>
+                        </td>
+                        <td><%= l news.pub_date, format: :short %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+</div>

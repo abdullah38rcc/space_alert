@@ -5,12 +5,12 @@
 <ul data-role="listview" data-inset="true">
 <% news_dates = @news.group_by { |n| n.pub_date.to_date } %>
 <% news_dates.each { |news_group|  %>
-    <li data-role="list-divider"><%= news_group[0] %><span class="ui-li-count"><%= news_group[1].count %></span></li>
+    <li data-role="list-divider"><%= l news_group[0], format: :long %><span class="ui-li-count"><%= news_group[1].count %></span></li>
 	<% news_group[1].each do |news| %>
     <li>
       <%= link_to news.link do %>
         <%= image_tag "logo.png", width: "80px" %>
-      	<h2><%= raw news.title %></h2>
+      	<h3><%= raw news.title %></h3>
       	<p><%= raw news.desc %></p>
       	<p class="ui-li-aside"><strong><%= news.pub_date.strftime("%I:%M %p") %></strong></p>	
       <% end -%>
