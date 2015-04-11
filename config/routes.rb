@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'data/index'
+  get 'data/bexrb'
+  get 'data/news'
+  get 'data/mobile_news'
+
   resources :bexrbs
 
   resources :news do

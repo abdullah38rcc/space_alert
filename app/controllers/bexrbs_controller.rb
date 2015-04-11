@@ -2,12 +2,11 @@ require "open-uri"
 
 class BexrbsController < ApplicationController
   before_action :set_bexrb, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   respond_to :html
 
   def index
-    
-
     @bexrbs = Bexrb.all
     respond_with(@bexrbs)
   end

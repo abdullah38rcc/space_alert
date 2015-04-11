@@ -28,29 +28,25 @@
                         <th><%= t("bexrbs.fermi_data") %></th>
                         <th><%= t("bexrbs.combined_plot") %></th>
                         <th><%= t("bexrbs.plot_days") %></th>
-                        <th colspan="3"></th>
           </tr>
         </thead>
         <tbody>
           <% @bexrbs.each do |bexrb| %>
           <tr>
-                        <td><%= bexrb.name %></td>
+                        <td><%= link_to bexrb.name, bexrb.url %></td>
                         <td><%= bexrb.ra %></td>
                         <td><%= bexrb.dec %></td>
                         <td><%= bexrb.orbit_period %></td>
-                        <td><%= bexrb.maxi_flux_change_prob %></td>
-                        <td><%= bexrb.maxi_data %></td>
-                        <td><%= bexrb.swift_flux_change_prob %></td>
+                        <td class="<%= bexrb.maxi_prob_color %>"><%= bexrb.maxi_flux_change_prob %></td>
+                        <td><%= link_to bexrb.maxi_data, bexrb.maxi_url %></td>
+                        <td class="<%= bexrb.swift_prob_color %>"><%= bexrb.swift_flux_change_prob %></td>
                         <td><%= bexrb.swift_average_flux %></td>
-                        <td><%= bexrb.swift_data %></td>
-                        <td><%= bexrb.fermi_flux_change_prob %></td>
+                        <td><%= link_to bexrb.swift_data, bexrb.swift_url %></td>
+                        <td class="<%= bexrb.fermi_prob_color %>"><%= bexrb.fermi_flux_change_prob %></td>
                         <td><%= bexrb.fermi_average_flux %></td>
-                        <td><%= bexrb.fermi_data %></td>
+                        <td><%= link_to bexrb.fermi_data, bexrb.fermi_url %></td>
                         <td><%= bexrb.combined_plot %></td>
                         <td><%= bexrb.plot_days %></td>
-                        <td><%= link_to t('helpers.links.show'), bexrb %></td>
-            <td><%= link_to t('helpers.links.edit'), edit_bexrb_path(bexrb) %></td>
-            <td><%= link_to t('helpers.links.destroy'), bexrb, method: :delete, data: { confirm: t('helpers.links.confirm') } %></td>
           </tr>
           <% end %>
         </tbody>

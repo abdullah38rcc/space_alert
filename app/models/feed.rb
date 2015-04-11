@@ -60,22 +60,32 @@ private
 	          _bexrb.ra = bexrb_td[1].content 
 	          _bexrb.dec = bexrb_td[2].content 
 	          _bexrb.orbit_period = bexrb_td[3].content 
-	          _bexrb.maxi_flux_change_prob = bexrb_td[4].content 
+	          _bexrb.maxi_prob_color = bexrb_td[4].css("span").count > 0 ? prob_color(bexrb_td[4].css("span").first["style"]) : ""
+	          _bexrb.maxi_flux_change_prob = bexrb_td[4].content.to_f * (_bexrb.maxi_prob_color == "dec" ? -1 : 1)
+	          _bexrb.maxi_flux_change_prob = nil if _bexrb.maxi_flux_change_prob == 0
 	          _bexrb.maxi_average_flux = bexrb_td[5].content 
 	          _bexrb.maxi_data = bexrb_td[6].content 
 	          _bexrb.maxi_url = bexrb_td[6].css("a").count > 0 ? bexrb_td[6].css("a").first["href"] : "" 
-	          _bexrb.swift_flux_change_prob = bexrb_td[7].content 
+
+	          _bexrb.swift_prob_color = bexrb_td[7].css("span").count > 0 ? prob_color(bexrb_td[7].css("span").first["style"]) : ""
+	          _bexrb.swift_flux_change_prob = bexrb_td[7].content.to_f * (_bexrb.swift_prob_color == "dec" ? -1 : 1) 
+	          _bexrb.swift_flux_change_prob = nil if _bexrb.swift_flux_change_prob == 0
 	          _bexrb.swift_average_flux = bexrb_td[8].content 
 	          _bexrb.swift_data = bexrb_td[9].content 
 	          _bexrb.swift_url = bexrb_td[9].css("a").count > 0 ? bexrb_td[9].css("a").first["href"] : "" 
-	          _bexrb.fermi_flux_change_prob = bexrb_td[10].content 
+
+	          _bexrb.fermi_prob_color = bexrb_td[10].css("span").count > 0 ? prob_color(bexrb_td[10].css("span").first["style"]) : ""
+	          _bexrb.fermi_flux_change_prob = bexrb_td[10].content.to_f * (_bexrb.fermi_prob_color == "dec" ? -1 : 1) 
+	          _bexrb.fermi_flux_change_prob = nil if _bexrb.fermi_flux_change_prob == 0
 	          _bexrb.fermi_average_flux = bexrb_td[11].content 
 	          _bexrb.fermi_data = bexrb_td[12].content 
 	          _bexrb.fermi_url = bexrb_td[12].css("a").count > 0 ? bexrb_td[12].css("a").first["href"] : "" 
 	          _bexrb.combined_plot = bexrb_td[13].content
-	          days_html = ""
-	          open('http://integral.esac.esa.int/bexrbmonitor/' + bexrb_td[13].css("a").first["href"], hdrs).each {|s| days_html << s.to_s}
-	          _bexrb.plot_days = days_html.scan(/Weekly analysis on last (.*) days data of/)[0][0]
+	          if _bexrb.updated_at < 1.day.ago
+		          days_html = ""
+		          open('http://integral.esac.esa.int/bexrbmonitor/' + bexrb_td[13].css("a").first["href"], hdrs).each {|s| days_html << s.to_s}
+		          _bexrb.plot_days = days_html.scan(/Weekly analysis on last (.*) days data of/)[0][0]
+		      end 
 	          _bexrb.save
 	      puts "Saved: #{_bexrb.name}"
 	      #rescue Exception => e
@@ -105,5 +115,16 @@ private
 			news.source = self.id
 			news.save
 		}
+	end
+
+	def prob_color(value)
+		case value
+		when "color:yellow"
+			"inc"
+		when "color:red"
+			"dec"
+		else
+			"no-data"
+		end
 	end
 end

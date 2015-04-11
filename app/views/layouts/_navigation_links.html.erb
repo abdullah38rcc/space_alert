@@ -6,6 +6,8 @@
 		  <td class="<%= is_active_controller('users') %>"><%= link_to 'Users', users_path %></td>
 		  <td class="<%= is_active_controller('feeds') %>"><%= link_to 'Feeds', feeds_path %></td>
 		  <td class="<%= is_active_controller('news') %>"><%= link_to 'News', news_index_path %></td>
+		<% else %>
+		  <td class="<%= is_active_controller('data') %>"><%= link_to 'Public Data', data_index_path %></td>
 		<% end %>
 		<td>
 			<div id="logo" class="hidden-xs hidden-sm">
@@ -15,11 +17,10 @@
 		    </div>
     	</td>
 		<% if user_signed_in? %>
-		  <td><%= link_to 'My account', edit_user_registration_path %></td>
+		  <td class="<%= is_active_controller('data') %>"><%= link_to 'Public Data', data_index_path %></td>
 		  <td><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></td>
 		<% else %>
 		  <td><%= link_to 'Sign in', new_user_session_path %></td>
-		  <td><%= link_to 'Sign up', new_user_registration_path %></td>
 		<% end %>
 		
 		<td></td>

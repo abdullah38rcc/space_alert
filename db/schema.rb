@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411114017) do
+ActiveRecord::Schema.define(version: 20150411145704) do
 
   create_table "bexrbs", force: true do |t|
     t.string   "name"
@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 20150411114017) do
     t.string   "plot_days"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "maxi_prob_color"
+    t.string   "swift_prob_color"
+    t.string   "fermi_prob_color"
   end
 
   create_table "feeds", force: true do |t|

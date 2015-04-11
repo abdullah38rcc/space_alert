@@ -146,3 +146,23 @@ section {
   font-size: 19px;
   font-weight: 600;
 }
+
+.nav .active a {
+  border: 2px solid #e14339;
+  background-color: #fff;
+  color: #e14339;
+}
+
+.inc {
+  color: green;
+  font-weight: bolder;
+}
+
+.dec {
+  color: red;
+  font-weight: bolder;
+}
+
+.no-data {
+  
+}
