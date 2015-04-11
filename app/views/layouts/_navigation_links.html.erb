@@ -27,7 +27,7 @@
 	<% if user_signed_in? %>
 	  <li class="visible-xs <%= is_active_controller('users') %>"><%= link_to 'Users', users_path %></li>
 	  <li class="visible-xs <%= is_active_controller('feeds') %>"><%= link_to 'Feeds', feeds_path %></li>
-	  <li class="visible-xs <%= is_active_controller('news') %>"><%= link_to 'News', news_index_path %></li>
+	  <li class="visible-xs <%= is_active_controller('news') %>"><%= link_to 'News', data_mobile_news_path %></li>
 	  <li class="visible-xs <%= is_active_controller('data') %>"><%= link_to 'Public Data', data_index_path %></li>
 	  <li class="visible-xs"><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
 	<% else %>
