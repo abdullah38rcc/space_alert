@@ -82,7 +82,7 @@ private
     				_bexrb.fermi_data = bexrb_td[12].content 
     				_bexrb.fermi_url = bexrb_td[12].css("a").count > 0 ? bexrb_td[12].css("a").first["href"] : "" 
     				_bexrb.combined_plot = bexrb_td[13].content
-    				if _bexrb.updated_at < 1.day.ago
+    				if _bexrb.updated_at.blank? or _bexrb.updated_at < 1.day.ago
     				  days_html = ""
     				  open('http://integral.esac.esa.int/bexrbmonitor/' + bexrb_td[13].css("a").first["href"], hdrs).each {|s| days_html << s.to_s}
     				  _bexrb.plot_days = days_html.scan(/Weekly analysis on last (.*) days data of/)[0][0]
