@@ -17,6 +17,8 @@
                         <th><%= t("news.title") %></th>
                         <th><%= t("news.desc") %></th>
                         <th><%= t("news.link") %></th>
+                        <th><%= t("news.source") %></th>
+
                         <th><%= t("news.pub_date") %></th>
                         <th><%= t("news.image") %></th>
                         <th><%= t("news.code") %></th>
@@ -29,6 +31,7 @@
                         <td><%= link_to simple_format(news.title), news %></td>
                         <td><%= simple_format news.desc %></td>
                         <td><%= link_to "Link", news.link %></td>
+                        <td><%= news.source %></td>
                         <td><%= news.pub_date %></td>
                         <td><%= news.image %></td>
                         <td><%= news.code %></td>

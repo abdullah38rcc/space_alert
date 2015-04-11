@@ -13,19 +13,15 @@
 			</div>
 			<div class="ibox-content">
 				<dl class="dl-horizontal">
-										<dt><strong><%= t("news.title") %>:</strong></dt>
-					<dd><%= @news.title %></dd>
-										<dt><strong><%= t("news.desc") %>:</strong></dt>
-					<dd><%= @news.desc %></dd>
-										<dt><strong><%= t("news.link") %>:</strong></dt>
-					<dd><%= @news.link %></dd>
-										<dt><strong><%= t("news.pub_date") %>:</strong></dt>
-					<dd><%= @news.pub_date %></dd>
-										<dt><strong><%= t("news.image") %>:</strong></dt>
-					<dd><%= @news.image %></dd>
-										<dt><strong><%= t("news.code") %>:</strong></dt>
-					<dd><%= @news.code %></dd>
-									</dl>
+
+					<%= display(@news, :title) %>
+					<%= display(@news, :desc) %>
+					<%= display(@news, :link) %>
+					<%= display(@news, :source) %>
+					<%= display(@news, :pub_date) %>
+					<%= display(@news, :image) %>
+					<%= display(@news, :code) %>
+
 			</div>
 		</div>
 	</div>

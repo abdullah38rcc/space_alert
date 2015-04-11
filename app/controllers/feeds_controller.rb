@@ -19,7 +19,8 @@ class FeedsController < ApplicationController
   end
 
   def new
-    @feed = Feed.new
+    @feed = Feed.new(method: "GET", state: "Active", parser_class: "RSS")
+
     respond_with(@feed)
   end
 
@@ -49,6 +50,6 @@ class FeedsController < ApplicationController
     end
 
     def feed_params
-      params.require(:feed).permit(:url, :state, :last_connected_at)
+      params.require(:feed).permit(:url, :state, :last_connected_at, :method, :parser_class, :post_data)
     end
 end

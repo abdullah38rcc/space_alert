@@ -14,6 +14,8 @@
         <thead>
           <tr>
                         <th><%= t("feeds.url")%></th>
+                        <th><%= t("feeds.method") %></th>
+                        <th><%= t("feeds.parser_class") %></th>
                         <th><%= t("feeds.state") %></th>
                         <th><%= t("feeds.last_connected_at") %></th>
                         <th colspan="1"></th>
@@ -23,6 +25,8 @@
           <% @feeds.each do |feed| %>
           <tr>
                         <td><%= link_to feed.url, feed %></td>
+                        <td><%= feed.method %></td>
+                        <td><%= feed.parser_class %></td>
                         <td><%= feed.state %></td>
                         <td><%= feed.last_connected_at %></td>
             <td><%= link_to t('helpers.links.destroy'), feed, method: :delete, data: { confirm: t('helpers.links.confirm') } %></td>

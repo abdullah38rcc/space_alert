@@ -15,7 +15,11 @@
 				<%= simple_form_for @feed, :html => { :class => 'form-horizontal' } do |f| %>
 				<%= f.error_notification %>
 				<%= f.input :url %>
+				<%= f.input :method, collection: ["GET", "POST"] %>
+				<%= f.input :post_data, as: :text %>
+				<%= f.input :parser_class %>
 				<%= f.input :state, collection: ["Active", "Passive"] %>
+
 				<div class="right">
 					<%= f.button :submit, :class => 'btn btn-primary' %>
 					<%= link_to t('.cancel', :default => t("helpers.links.cancel")),

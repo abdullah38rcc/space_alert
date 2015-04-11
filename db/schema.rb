@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411001118) do
+ActiveRecord::Schema.define(version: 20150411114017) do
 
   create_table "bexrbs", force: true do |t|
     t.string   "name"
@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(version: 20150411001118) do
     t.datetime "last_connected_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "parser_class"
+    t.text     "post_data"
+    t.string   "method"
   end
 
   create_table "news", force: true do |t|
@@ -56,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150411001118) do
     t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "source"
   end
 
   create_table "users", force: true do |t|

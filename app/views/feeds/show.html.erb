@@ -13,13 +13,12 @@
 			</div>
 			<div class="ibox-content">
 				<dl class="dl-horizontal">
-										<dt><strong><%= t("feed.url") %>:</strong></dt>
-					<dd><%= @feed.url %></dd>
-										<dt><strong><%= t("feed.state") %>:</strong></dt>
-					<dd><%= @feed.state %></dd>
-										<dt><strong><%= t("feed.last_connected_at") %>:</strong></dt>
-					<dd><%= @feed.last_connected_at %></dd>
-									</dl>
+					<%= display(@feed, :url) %>
+					<%= display(@feed, :method) %>
+					<%= display(@feed, :post_data) %>
+					<%= display(@feed, :parser_class) %>
+					<%= display(@feed, :last_connected_at) %>
+					<%= display(@feed, :state) %>
 			</div>
 		</div>
 	</div>
