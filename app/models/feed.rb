@@ -1,3 +1,5 @@
+require 'net/http'
+
 class Feed < ActiveRecord::Base
 	validates :url, presence: true
 

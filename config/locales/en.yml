@@ -1,5 +1,57 @@
 ---
 en:
+  active_record:
+    attributes:
+      feed:
+        last_connected_at: Last connected at
+        method: Method
+        parser_class: Parser class
+        post_data: Post data
+        state: State
+        url: Url
+      news:
+        code: Code
+        desc: Desc
+        image: Image
+        link: Link
+        pub_date: Pub date
+        source: Source
+        title: Title
+  bexrb:
+    combined_plot: Combined plot
+    dec: Dec
+    fermi_average_flux: Fermi average flux
+    fermi_data: Fermi data
+    fermi_flux_change_prob: Fermi flux change prob
+    maxi_data: Maxi data
+    maxi_flux_change_prob: Maxi flux change prob
+    name: Name
+    orbit_period: Orbit period
+    plot_days: Plot days
+    ra: Ra
+    swift_average_flux: Swift average flux
+    swift_data: Swift data
+    swift_flux_change_prob: Swift flux change prob
+  bexrbs:
+    combined_plot: Combined plot
+    dec: Dec
+    fermi_average_flux: Fermi average flux
+    fermi_data: Fermi data
+    fermi_flux_change_prob: Fermi flux change prob
+    form:
+      cancel: Cancel
+    maxi_data: Maxi data
+    maxi_flux_change_prob: Maxi flux change prob
+    name: Name
+    new: New
+    orbit_period: Orbit period
+    plot_days: Plot days
+    ra: Ra
+    show:
+      title: Title
+    swift_average_flux: Swift average flux
+    swift_data: Swift data
+    swift_flux_change_prob: Swift flux change prob
   common:
     basic_info: Basic info
   feed:
@@ -10,7 +62,9 @@ en:
     form:
       cancel: Cancel
     last_connected_at: Last connected at
+    method: Method
     new: New
+    parser_class: Parser class
     show:
       title: Title
     state: State
@@ -23,7 +77,10 @@ en:
       confirm: Confirm
       destroy: Destroy
       edit: Edit
+      read: Read
+      show: Show
   models:
+    bexrbs: Bexrbs
     feeds: Feeds
     news: News
   news:
@@ -37,4 +94,5 @@ en:
     pub_date: Pub date
     show:
       title: Title
+    source: Source
     title: Title
